@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="LEA" default="prepare" basedir="./">
+
+    <property file="build.properties" />
+
+    <!-- ============================================  -->
+    <!-- Target: prepare                               -->
+    <!-- ============================================  -->
+    <target name="prepare">
+        <echo msg="Making directory ./build" />
+        <mkdir dir="../Data/Temporary" />
+        <mkdir dir="../Data/Temporary/Configuration" />
+        <mkdir dir="../Data/DBDeploy/Deltas" />
+    </target>
+
+
+    <!-- ============================================  -->
+    <!-- Target: createDBStructure                     -->
+    <!-- ============================================  -->
+    <target name="migrate">
+        <dbdeploy
+          url="mysql:host=${db.host};dbname={$db.name}"
+          userid="{$db.user}"
+          password="{$db.pass}"
+          dir="${project.basedir}/Data/DBDeploy/Deltas"
+          outputfile="${project.basedir}/Data/DBDeploy/Up.sql"
+          undooutputfile="${project.basedir}/Data/DBDeploy/Down.sql"
+        />
+
+        <exec
+           command="{$path.mysql} -h{$db.host} -u{$db.user} -p {$db.pass} {$db.name} < ${project.basedir}/Data/DBDeploy/Up.sql"
+           dir="${project.basedir}/Data/DBDeploy/"
+           checkreturn="true"
+        />
+    </target>
+
+</project>
