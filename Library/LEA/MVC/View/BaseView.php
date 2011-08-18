@@ -1,5 +1,4 @@
 <?php
-declare(ENCODING = 'utf-8');
 namespace LEA\MVC\View;
 require_once ROOT . '/Library/Smarty/Smarty.class.php';
 
