@@ -20,6 +20,8 @@ class BaseView extends \Smarty {
         parent::__construct();
         $this->configuration = $configuration;
         $this->templateFile = $templateFile;
+        $this->left_delimiter = $this->configuration['templating']['left_delimiter'];
+        $this->right_delimiter = $this->configuration['templating']['right_delimiter'];
 
         $this->setTemplateDir(ROOT . $this->configuration['templating']['path']['templates']);
         $this->setCompileDir(ROOT . $this->configuration['templating']['path']['compiled']);

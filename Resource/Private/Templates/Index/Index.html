@@ -1,15 +1,15 @@
-{extends file="$_layoutPath/Master.html"}
-{block name=main}
+<%extends file="$_layoutPath/Master.html"%>
+<%block name=main%>
 
     <h1>Index View</h1>
 
-    {if $users}
+    <%if $users%>
         <h2>Users</h2>
         <ul>
-            {foreach $users as $user}
-                <li>{$user->getIdentifier()}: {$user->getFirstname()} {$user->getLastname()}</li>
-            {/foreach}
+            <%foreach $users as $user%>
+                <li><%$user->getIdentifier()%>: <%$user->getFirstname()%> <%$user->getLastname()%></li>
+            <%/foreach%>
         </ul>
-    {/if}
-        
-{/block}
+    <%/if%>
+
+<%/block%>

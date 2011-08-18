@@ -1,0 +1,24 @@
+<%extends file="$_layoutPath/Master.html"%>
+<%block name=main%>
+
+    <h1>Sproutcore2 TestView</h1>
+
+	<script type="text/x-handlebars" >
+
+		{{#view LEA.UserView}}
+			{{view firstnameView id="firstname" placeholder="Firstname"}}
+			{{view lastnameView id="lastname" placeholder="Lastname"}}
+			{{view saveButtonView id="saveButton" value="Save"}}
+		{{/view}}
+
+
+		{{#collection contentBinding="LEA.usersController" tagName="ul"}}
+			{{content.firstname}}
+		{{/collection}}
+	</script>
+
+<%/block%>
+
+<%block name=jsFooter%>
+	<script src="/_Resources/Javascript/Sites/Sproutcore.js"></script>
+<%/block%>

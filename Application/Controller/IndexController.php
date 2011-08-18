@@ -27,6 +27,13 @@ class IndexController extends \LEA\MVC\Controller\BaseController {
 	}
 
     /**
+     *
+     */
+	public function sproutcoreAction() {
+	    
+	}
+
+    /**
      * Just a test, add a new dummy user
      *
      * @return void
