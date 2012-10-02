@@ -9,3 +9,14 @@ Installation
 ------------
 
 Comming soon!
+
+- Data/Persistence/MySQL*
+
+
+
+Features
+------------
+
+- Implement Composer (PSR-0)
+- sproutcore -> http://emberjs.com/
+- Smarty 3.0.7 -> 3.1.12
